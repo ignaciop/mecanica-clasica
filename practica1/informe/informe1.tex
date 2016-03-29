@@ -5,6 +5,7 @@
 \usepackage[spanish]{babel} 
 \usepackage[utf8]{inputenc}
 \usepackage{textcomp}
+\usepackage{amssymb}
 \usepackage{float}
 \usepackage{subfig}
 \usepackage{listings}
@@ -103,41 +104,11 @@ Se deber\'a entregar un trabajo de la actividad 2 y 3, con los c\'odigos, los gr
 \section{An\'alisis de datos y conclusiones}
 \subsection{Oscilador arm\'onico amortiguado}
 
-Para su desarrollo se requirieron de los siguientes materiales:
-\begin{itemize}\item Soporte de 1.5 metros de altura
-\item Sensor optico (photogate)
-\item Hilo inextensible
-\item Bolita metálica
-\item Fósforo
-\item Cinta métrica (apreciación 0,001 m)
-\item Software (Precission Timer, Origin 6.0)
-\end{itemize}
-
-Previo al montaje del experimento fue necesario medir de forma directa las magnitudes fisicas formalmente involucradas.
-
-Masa del sistema: 112,00 g
-
-Radio de la esfera: 30, 2 mm
-
-Longitud del fósforo: 40 mm
-
-Largo de la cabeza del tornillo: 9,22 mm
+El oscilador arm\'onico amotiguado es el caso generalizado de los osciladores arm\'onicos libres ya que su comportamiento contempla la disipaci\'on de energ\'ia pero no la presencia de fuerzas externas. Su comportamiento est\'a dado por (1).
+Para obtener las soluciones de dicha ecuacion, se propone una solucion de la forma $x(t) = e^{zt}$, con $z \in \mathbb{C}$.
+Reemplazando el $x(t)$ propuesto en (1), se obtiene la siguiente ecuacion cuadratica para $z$:
 
 
-Una vez medidas, para el armado del modelo unimos un fósforo a una bolita metálica de manera que el photogate pueda captar la oscilación con exactitud. Se sujeto la bolita a un extremo del hilo y el otro extremo se fijo al soporte. De manera que el dispositivo sea semejante al de la figura (\ref{figpendulo})
-
- \begin{figure}[H]
-\begin{center}
-\includegraphics[height=10cm]{SimplePendulum.jpg}
-\caption[width=5cm]{Sistema del pendulo armado con la esfera colocada de tal forma que el fosforo adherido a la esfera bloquee el haz de luz al pasar}
-\label{figpendulo}
-\end{center}
-\end{figure}
-
-
-
-
-Al tomar la aproximacion de peque\~nas oscilaciones, el ángulo de desviación máximo respecto a la vertical fue de 10\textdegree. La longitud fue tomada con cinta métrica (desde el punto de suspensión hasta el centro de la cabeza del tornillo,a lo que se le sumo la altura de la cabeza del tornillo y el radio de la esfera), de manera de tener la longitud desde el punto de vinculo al centro de masa. Una vez montado el dispositivo se procede a adecuar el hilo a la longitud deseada. Luego se aparta la esfera de la vertical, y se la deja oscilar libremente. Se midio el período de 3 series de 50 oscilaciones del pendulo para 10 longitudes distintas (desde 0,60m a 1,50 m con intervalos de 0,1 m) utilizando el photogate y los equipos de adquisición de datos con el programa Precision Timer.
 
 
 \subsection{Oscilador de Van der Pol}
