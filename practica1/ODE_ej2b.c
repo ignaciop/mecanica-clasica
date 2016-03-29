@@ -33,16 +33,16 @@ int main(){
   ptr=fopen("ej2b.dat","w");
 
   dt=0.01;
-  t_max=2;
+  t_max=5;
 
   //Condiciones Iniciales
-  aa.gamma = 0.5;
-  aa.omega = 0.1;
+  v[0] = 0.5;
+  v[1] = 0.1;
   
   for (j=1;j<=5;j++) {
    for (i=1;j<=10;j++) {
-    v[0]=j;
-    v[1]=10*i;
+    aa.gamma=0.5*j;
+    aa.omega=i;
  
     t=0.;
 					

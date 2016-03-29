@@ -30,7 +30,7 @@ int main(){
   double v[2],t,dt,t_pre,t_max;
 
   //Archivo de salida
-  ptr=fopen("ej2a.dat","w");
+  ptr=fopen("ej2c.dat","w");
 
   dt=0.01;
   t_max=5;
@@ -40,9 +40,12 @@ int main(){
   v[1] = 0.1;
   
   for (j=1;j<=5;j++) {
+	  v[0] = 0.5*j;
+	  aa.gamma=j;
    for (i=1;j<=10;j++) {
-    aa.gamma=4*j;
-    aa.omega=i;
+    aa.gamma=j;
+    aa.omega=5*i;
+	v[0] = 0.5*i;
  
     t=0.;
 					

@@ -14,7 +14,7 @@ void ecuaciones(int n, double v[], double dv[], double t){
   double x,y;
   x=v[0];/*y=v[1];*/
 
-  dv[0]= x+10/(1+(x-1)*(x-1)*aa.omega)-0.1*exp(aa.mu*x);
+  dv[0]= x+10/(1+(x-1)*(x-1))-0.1*exp(x);
 /*  dv[1]= x + a*y*(x*x + y*y);*/
   
   return;
@@ -37,10 +37,7 @@ int main(){
   //Condiciones Iniciales
   
   for (i=0;i<=10;i++) {
-  for (j=1;i<=20;i++) {
     v[0]=0.5*i;
-    aa.omega = 0.005*j;
-    aa.mu = 0.002*j;
     /*v[1]=0;*/
 				
     t=0.;
@@ -55,7 +52,6 @@ int main(){
       t+=dt;
     }
           fprintf(ptr,"\n");
-  }
   }
   
 fclose(ptr);
