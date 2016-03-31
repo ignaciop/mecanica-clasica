@@ -89,48 +89,103 @@ Este sistema presenta soluciones oscilatorias para ciertos valores del par\'amet
 Se deber\'a entregar un trabajo de la actividad 2 y 3, con los c\'odigos, los gr\'aficos obtenidos para las integraciones num\'ericas propuestas y el correspondiente an\'alisis para cada caso.
 
 
-
-\begin{figure}[H]
-\begin{center}
-\includegraphics[height=8cm]{histograma.JPG}
-\caption[width=5cm]{Histograma}
-\label{hcongauss}
-\end{center}
-\end{figure}
-
-
-
-
 \section{An\'alisis de datos y conclusiones}
 \subsection{Oscilador arm\'onico amortiguado}
 
 El oscilador arm\'onico amotiguado es el caso generalizado de los osciladores arm\'onicos libres ya que su comportamiento contempla la disipaci\'on de energ\'ia pero no la presencia de fuerzas externas. Su comportamiento est\'a dado por (1).
-Para obtener las soluciones de dicha ecuacion, se propone una solucion de la forma $x(t) = e^{zt}$, con $z \in \mathbb{C}$.
-Reemplazando el $x(t)$ propuesto en (1), se obtiene la siguiente ecuacion cuadratica para $z$:
+Para obtener las soluciones de dicha ecuacion, se propone una con la forma $x(t) = e^{zt}$, con $z \in \mathbb{C}$ (luego $\dot{x}(t) = ze^{zt}$ y $\ddot{x}(t) = z^2e^{zt}$).
+
+Reemplazando el $x(t)$ y sus derivadas en (1), se obtiene la siguiente ecuacion cuadratica para $z$:
+
+$$
+(z^2 + 2\gamma z + \omega_o^2)e^{zt}=0
+$$
+
+Esta ecuacion es igual a 0 si y solo si $(z^2 + 2\gamma z + \omega_o^2) = 0$. Las raices de este polinomio son:
+
+$$
+z_{1,2} = \frac{-2\gamma \pm \sqrt{4\gamma^2 - 4\omega_0^2}}{2} = -\gamma \pm \sqrt{\gamma^2 - \omega_0^2}
+$$
+
+Podemos distinguir tres casos que, a continuaci\'on, analizamos por separado.
+
+\begin{itemize}
+\item Si $\omega_0^2 > \gamma^2$, tenemos dos raices complejas
+$$z_{1} = -\gamma + i\sqrt{\omega_0^2 - \gamma^2}$$  $$z_{2} = -\gamma - i\sqrt{\omega_0^2 - \gamma^2}$$
+Sea $\omega_{1} = \sqrt{\omega_0^2 - \gamma^2}$. Reemplazando esta nueva frecuencia en la solucion propuesta y tomando su parte real, tenemos que
+\begin{equation}
+x(t) = e^{-\gamma t}(acos(\omega_{1}t) + bsin(\omega_{1}t))
+\end{equation}
+
+$$\dot{x}(t) = e^{-\gamma t}((\omega_{1}b - \gamma a)acos(\omega_{1}t) + (\omega_{1}a - \gamma b)bsin(\omega_{1}t))$$
+
+donde $a$ y $b$ se determinan con las condiciones iniciales
+$$ x(0) = a, \dot{x}(0) = \omega_{1}b - \gamma a$$
+Luego, la ecuacion (3) nos queda
+\begin{equation}
+x(t) = e^{-\gamma t}(x(0)cos(\omega_{1}t) + \frac{\dot{x}(0) + \gamma x(0)}{\omega_{1}}sin(\omega_{1}t))
+\end{equation}
+
+Este movimiento corresponde a una oscilacion armonica de frecuencia $\omega_{1}$, diferente de la frecuencia natural $\omega_{0}$; y se denomina \textit{movimiento oscilatorio subamortiguado}.
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[height=5cm]{oscilacion_subamortiguada.JPG}
+\caption[width=5cm]{Movimiento oscilatorio subamortiguado.\newline Se observa como la curva esta modulada por un termino exponencial relacionado con la constante de amortiguamiento $\gamma$.}
+\end{center}
+\end{figure}
+
+\item Si $\omega_0^2 < \gamma^2$, tenemos dos raices reales
+$$z_{1} = -\gamma + \sqrt{\gamma^2 - \omega_0^2}$$  $$z_{2} = -\gamma - \sqrt{\gamma^2 - \omega_0^2}$$
+
+
+En este caso, la ecuacion $x(t)$ nos quedara expresada en termino de cosenos y senos hiperbolicos. Para las condiciones iniciales procedemos como en el caso del oscilador subamortiguado, por lo tanto la ecuacion de movimiento nos queda
+
+\begin{equation}
+x(t) = x(0)e^{-\gamma t}cosh(\sqrt{\gamma^2 - \omega_0^2}t) + \frac{\dot{x}(0) + \gamma x(0)}{\sqrt{\gamma^2 - \omega_0^2}}e^{-\gamma t}sinh(\sqrt{\gamma^2 - \omega_0^2}t)
+\end{equation}
+
+Este movimiento se denomina \textit{oscilatorio sobreamortiguado}.
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[height=5cm]{oscilacion_sobreamortiguada.JPG}
+\caption[width=5cm]{Esquema del movimiento oscilatorio sobreamortiguado. En $t_{0}$ el sistema decae a 0 sin llegar a completar un periodo de oscilacion.}
+\end{center}
+\end{figure}
+
+
+\item Si $\omega_0^2 = \gamma^2$, tenemos una raiz real doble
+
+$$z_{1,2} = -\gamma$$
+
+Al tener una unica raiz doble, debemos considerar soluciones del siguiente tipo: 
+
+$$ x(t) = (a+bt)e^{-\gamma t}$$
+
+Al imponer las condiciones iniciales sobre $x(t)$, la solucion nos queda que
+
+\begin{equation}
+x(t) = [x(0) + (\dot{x}(0) + \gamma x(0))t]e^{-\gamma t}
+\end{equation}
+
+Este movimiento se denomina \textit{oscilatorio con amortiguamiento critico}.
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[height=5cm]{oscilacion_amortiguada_c.JPG}
+\caption[width=5cm]{Esquema del movimiento oscilatorio con amortiguamiento critico}
+\end{center}
+\end{figure}
+
+\end{itemize}
+
 
 
 
 
 \subsection{Oscilador de Van der Pol}
 
-A partir de las 50 mediciones del periodo del pendulo hechas en cada serie a distintas longitudes, se calcul\'o su valor medio.
-
-Es importante aclarar que obtenidos los valores medios fue necesario conocer la desviaci\'on de cada uno de ellos. Para lo cual aplicamos la siguiente f\'ormula:
-
-\begin{equation}
- {\Delta y}^2=\sum\limits_{k=1}^n \left(\frac{\partial \textit{f}}{\partial x_{i}}  {(x_{1},x_{2},\ldots,x_{n})}\ldotp \Delta x_{i} \right)^2
-\caption{F\'ormula de propagaci\'on de errores}
-\label{propaerrores}
-\end{equation}
-
-$\Delta {T}$ fue obtenido a partir del software Origin. Mientras que para $\Delta {L}$ tuvimos que aplicar la f\'ormula (\ref{propaerrores}) ya que la medici\'on del punto de v\'inculo al centro de masa lo hicimos tomando las longitudes del hilo, la cabeza del tornillo y el redio de la esfera.
-
-
-A partir de los datos obtenidos en la tabla (\ref{tabpromedios}) de forma directa, se realiz\'o un test de hip\'otesis estad\'istico. Es decir, determinar si los valores corresponden a una distribuci\'on gaussiana. Para ello, tomamos diferentes mediciones del periodo a distintas longitudes y graficamos la informaci\'on recolectada mediante histogramas. Con esta informaci\'on se procedi\'o a un ajuste Gaussiano
-
-
-
-He aqui las distintas situaciones.
 
 
 \section{Ap\'endice}
