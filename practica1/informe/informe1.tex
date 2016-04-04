@@ -131,7 +131,7 @@ Este movimiento corresponde a una oscilaci\'on arm\'onica de frecuencia $\omega_
 
 \begin{figure}[H]
 \begin{center}
-\includegraphics[height=8cm]{oscilacion_subamortiguada.JPG}
+\includegraphics[height=8cm]{oscilacion_subamortiguada.jpg}
 \caption[width=5cm]{Movimiento oscilatorio subamortiguado.\newline Se observa como la curva esta modulada por un termino exponencial relacionado con la constante de amortiguamiento $\gamma$.}
 \end{center}
 \end{figure}
@@ -150,7 +150,7 @@ Este movimiento se denomina \textit{oscilatorio sobreamortiguado}.
 
 \begin{figure}[H]
 \begin{center}
-\includegraphics[height=8cm]{oscilacion_sobreamortiguada.JPG}
+\includegraphics[height=8cm]{oscilacion_sobreamortiguada.jpg}
 \caption[width=5cm]{Esquema del movimiento oscilatorio sobreamortiguado. En $t_{0}$ el sistema decae a 0 sin llegar a completar un periodo de oscilaci\'on.}
 \end{center}
 \end{figure}
@@ -174,7 +174,7 @@ Este movimiento se denomina \textit{oscilatorio con amortiguamiento cr\'itico}.
 
 \begin{figure}[H]
 \begin{center}
-\includegraphics[height=8cm]{oscilacion_amortiguada_c.JPG}
+\includegraphics[height=8cm]{oscilacion_amortiguada_c.jpg}
 \caption[width=5cm]{Esquema del movimiento oscilatorio con amortiguamiento cr\'itico.}
 \end{center}
 \end{figure}
@@ -211,21 +211,21 @@ Los gr\'aficos correspondientes a estos resultados son los siguientes:
 
 \begin{figure}[H]
 \begin{center}
-\includegraphics[height=8cm]{grafico_ej2_xVSt.JPG}
+\includegraphics[height=8cm]{grafico_ej2_xVSt.jpg}
 \caption[width=5cm]{Posici\'on en funci\'on del tiempo para los 3 casos estudiados del oscilador arm\'onico amortiguado.}
 \end{center}
 \end{figure}
 
 \begin{figure}[H]
 \begin{center}
-\includegraphics[height=8cm]{grafico_ej2_vVSt.JPG}
+\includegraphics[height=8cm]{grafico_ej2_vVSt.jpg}
 \caption[width=5cm]{Velocidad en funci\'on del tiempo para los 3 casos estudiados del oscilador arm\'onico amortiguado.}
 \end{center}
 \end{figure}
 
 \begin{figure}[H]
 \begin{center}
-\includegraphics[height=8cm]{grafico_ej2_xVSv.JPG}
+\includegraphics[height=8cm]{grafico_ej2_xVSv.jpg}
 \caption[width=5cm]{Espacio de fases para los 3 casos estudiados del oscilador arm\'onico amortiguado.}
 \end{center}
 \end{figure}
@@ -242,7 +242,50 @@ Se observa adem\'as la gran amplitud y frecuencia inicial de esta funci\'on con 
 
 \subsection{Oscilador de Van der Pol}
 
+Para realizar el an\'alisis num\'erico de este oscilador no-lineal, se reescribi\'o la ecuaci\'on de segundo orden (2) como dos ecuaciones de primer orden utilizando las ecuaciones de Li\'enard:
 
+$$ \begin{cases} \dot{x} = \mu (y-(x^3-x)) \\ \dot{y} = -\frac{1}{\mu}x \end{cases} $$
+
+Podemos destacar dos reg\'imenes interesantes para este oscilador, dependientes del par\'ametro $\mu$:
+
+\begin{itemize}
+\item Si $\mu$ = 0, no hay amortiguamiento y la ecuaci\'on (2) queda:
+$$ \frac{d^2 x}{dt^2} + x = 0 $$
+Es la f\'ormula del oscilador arm\'onico simple sin p\'erdida de energ\'ia.
+\item Si $\mu$ > 0, el sistema alcanzar\'a un ciclo l\'imite, en el que se conservar\'a la energ\'ia. Cerca del origen $x$ = $\frac{dx}{dt}$ = 0, el sistema es inestable; y lejos del origen hay amortiguamiento.
+\end{itemize}
+
+Este \'ultimo caso es el m\'as interesante y para el cual se analizaron num\'ericamente dos posibilidades: amortiguamiento muy peque\~no ($\mu$ < < 1) y amortiguamiento muy grande ($\mu$ > > 1)
+
+Este sistema se implemento en el c\'odigo fuente \textit{ODE\_ej3.c} (ver secci\'on Ap\'endice). Se aumento el tiempo de muestreo a 20 segundos con respecto al ejercicio anterior, para poder ver detalladamente el espacio de fases de este oscilador.
+
+\begin{itemize}
+\item $\mu$ < < 1:
+
+
+En primera instancia, se dejaron las condiciones iniciales fijas ($x$(0) = -0.01 y $\dot{x}$(0) = 0.05). Como en el oscilador amortiguado, se utilizo una variable \textit{j} dentro del bucle \textit{for} para ir variando el parametro $\mu$. (mu1 = , mu2 = mu3 =). Cabe aclarar que \textit{j} tiene el mismo comportamiento que en el codigo para el oscilador amortiguado.
+
+GRAFICOS PARA MU CHICOS VARIABLES y CI FIJAS
+
+
+En una segunda instancia, las condiciones iniciales tambien se variaron dentro del mismo bucle. La siguiente tabla muestra los valores correspondientes a este caso:
+
+TABLA CON VALOR PARA MU CHICOS VARIABLES y CI VARIABLES
+
+
+\item $\mu$ > > 1:
+
+
+Como en el caso anterior, primero se dejaron las condiciones iniciales fijas ($x$(0) = -0.01 y $\dot{x}$(0) = 0.05), variando el parametro $\mu$. (mu1 = , mu2 =, mu3 =)
+
+TABLA CON VALOR PARA MU GRANDES VARIABLES y CI FIJAS
+
+
+Luego, las condiciones iniciales tambien se variaron dentro del mismo bucle. La siguiente tabla muestra los valores correspondientes a este caso:
+
+TABLA CON VALOR PARA MU GRANDES VARIABLES y CI VARIABLES
+
+\end{itemize}
 
 \section{Ap\'endice}
 

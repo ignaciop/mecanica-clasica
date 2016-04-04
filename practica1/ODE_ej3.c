@@ -36,11 +36,12 @@ int main(){
     dt=0.01;
     t_max=20;
 
-    // Condiciones iniciales.
-    for (j=-5;j<=5;j=j+1) {
-        v[0] = -0.01*j;
-        v[1] = 0.05*j;
-        aa.mu= -0.5*j;
+    // Condiciones iniciales fijas
+    v[0] = -0.01;
+    v[1] = 0.05;
+
+    for (j=1;j<=10;j=j+4) {
+        aa.mu= 0.005*j;
  
         t=0.;
 					

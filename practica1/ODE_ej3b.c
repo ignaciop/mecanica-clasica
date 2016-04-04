@@ -31,16 +31,18 @@ int main(){
     double v[2],t,dt,t_pre,t_max;
 
     // Archivo de salida
-    ptr=fopen("ej3.dat","w");
+    ptr=fopen("ej3b.dat","w");
 
     dt=0.01;
-    t_max=10;
+    t_max=20;
 
-    // Condiciones iniciales.
-    for (j=-5;j<=5;j=j+1) {
-        v[0] = -0.01*j;
-        v[1] = 0.05*j;
-        aa.mu= -0.5*j;
+    // Condiciones iniciales variables.
+    
+    for (j=1;j<=10;j=j+4) {
+        
+        aa.mu= 0.005*j;
+        v[0] = 0.2*j;
+        v[1] = -0.2*j;
  
         t=0.;
 					
