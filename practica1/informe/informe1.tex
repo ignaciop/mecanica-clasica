@@ -43,12 +43,12 @@ En ubuntu es posible compilar y ejecutar el c\'odigo directamente desde una term
 
 \framebox[1.1\width]{./ode\_ejX}\newline
 
-Se obtendr\'a como salida un archivo llamado $ejX.dat$ , donde $X$ es el n\'umero del ejercicio, que contiene el resultado de la integraci\'on. Los resultados pueden ser analizados graficamente mediante un graficador, en nuestro caso utilizaremos \textbf{gnuplot} que se controla mediante comandos en terminal.\newline
+Se obtendr\'a como salida un archivo llamado $ejX.dat$ , donde $X$ es el n\'umero del ejercicio, que contiene el resultado de la integraci\'on. Los resultados pueden ser analizados gr\'aficamente mediante un graficador, en nuestro caso utilizaremos \textbf{gnuplot} que se controla mediante comandos en terminal.\newline
 
 
 {\Large \textbf{Actividad 1}}
 
-Editar el codigo de ODE.c para analizar los siguientes puntos:
+Editar el c\'odigo de ODE.c para analizar los siguientes puntos:
 
 \begin{itemize}
 \item C\'omo var\'ia el resultado seg\'un el paso de integraci\'on. Programe una integraci\'on con el m\'etodo de Euler y compare.
@@ -70,17 +70,17 @@ Estudie num\'ericamente las soluciones del sistema seg\'un la relaci\'on de los 
 
 {\Large \textbf{Actividad 3 - Oscilador de Van der Pol}}
 
-Es un tipo de oscilador con un amortiguamiento no lineal descripto a principio de siglo por Van der Pol quien estudi\'o circuitos el\'ectricos con componenten no lineales obteniendo la ecuaci\'on:
+Es un tipo de oscilador con un amortiguamiento no lineal descripto a principio de siglo por Van der Pol quien estudi\'o circuitos el\'ectricos con componentes no lineales obteniendo la ecuaci\'on:
 
 \begin{equation}
 	\frac{d^2 x}{dt^2} + \mu(x^2-1)\frac{dx}{dt} + x = 0
 \end{equation}
 
-Este sistema presenta soluciones oscilatorias para ciertos valores del par\'ametro $\mu$ que son conocidad como oscilaciones de relajaci\'on. Esta ecuaci\'on tiene una importancia en la ciencia ya que fue usada en distintos campos para describir por ejemplo, el comportamiento de una falla tect\'onica o el potencial de acci\'on de una neurona. Esto se debe a que el sistema seg\'un los valores de $x$ presenta un amortiguamiento positivo (como el de la actividad 2 donde el sistema pierde energ\'ia), y para otros presenta un amortiguamiento "negativo" donde el sistema gana energ\'ia. Esto produce que eventualmente la energ\'ia perdida en un ciclo sea igual a la ganada generando oscilaciones autosostenidas. Este sistema se ver\'a con m\'as detalle avanzado el curso, en esta pr\'actica se propone realizar un acercamiento de forma num\'erica para tener cierta comprensi\'on de c\'omo se comporta el mismo.
+Este sistema presenta soluciones oscilatorias para ciertos valores del par\'ametro $\mu$ que son conocidas como oscilaciones de relajaci\'on. Esta ecuaci\'on tiene una importancia en la ciencia ya que fue usada en distintos campos para describir por ejemplo, el comportamiento de una falla tect\'onica o el potencial de acci\'on de una neurona. Esto se debe a que el sistema seg\'un los valores de $x$ presenta un amortiguamiento positivo (como el de la actividad 2 donde el sistema pierde energ\'ia), y para otros presenta un amortiguamiento "negativo" donde el sistema gana energ\'ia. Esto produce que eventualmente la energ\'ia perdida en un ciclo sea igual a la ganada generando oscilaciones autosostenidas. Este sistema se ver\'a con m\'as detalle avanzado el curso, en esta pr\'actica se propone realizar un acercamiento de forma num\'erica para tener cierta comprensi\'on de c\'omo se comporta el mismo.
 
 \begin{itemize}
 \item Escriba el sistema como dos ecuaciones de primer orden.
-\item Inspecione num\'ericamente las soluciones posibles del sistema, estudie como var\'ian seg\'un la variaci\'on del par\'ametro $\mu$. Para ello grafique la trayectoria $x$ en funci\'on del tiempo, la velocidad $\ddot{x}$ en funci\'on del tiempo y tambi\'en el espacio de fases $x  \ddot{x}$.
+\item Inspeccione num\'ericamente las soluciones posibles del sistema, estudie como var\'ian seg\'un la variaci\'on del par\'ametro $\mu$. Para ello grafique la trayectoria $x$ en funci\'on del tiempo, la velocidad $\ddot{x}$ en funci\'on del tiempo y tambi\'en el espacio de fases $x  \ddot{x}$.
 \item Modifique tambi\'en las condiciones iniciales y estudie num\'ericamente las respuestas del sistema. Para ello grafique la trayectoria $x$ en funci\'on del tiempo, la velocidad $\ddot{x}$ en funci\'on del tiempo y tambi\'en el espacio de fases $x  \ddot{x}$.
 \end{itemize}
 
@@ -113,7 +113,7 @@ Podemos distinguir tres casos que, a continuaci\'on, analizamos por separado.
 \begin{itemize}
 \item Si $\omega_0^2 > \gamma^2$, tenemos dos raices complejas
 $$z_{1} = -\gamma + i\sqrt{\omega_0^2 - \gamma^2}$$  $$z_{2} = -\gamma - i\sqrt{\omega_0^2 - \gamma^2}$$
-Sea $\omega_{1} = \sqrt{\omega_0^2 - \gamma^2}$. Reemplazando esta nueva frecuencia en la soluci\'on propuesta y tomando su parte real, tenemos que
+Sea $\omega_{1} = \sqrt{\omega_0^2 - \gamma^2}$. Reemplazando esta nueva frecuencia en la soluci\'on propuesta y tomando su parte real, tenemos que:
 \begin{equation}
 x(t) = e^{-\gamma t}(acos(\omega_{1}t) + bsin(\omega_{1}t))
 \end{equation}
@@ -122,7 +122,7 @@ $$\dot{x}(t) = e^{-\gamma t}((\omega_{1}b - \gamma a)acos(\omega_{1}t) + (\omega
 
 donde $a$ y $b$ se determinan con las condiciones iniciales
 $$ x(0) = a, \dot{x}(0) = \omega_{1}b - \gamma a$$
-Luego, la ecuaci\'on (3) nos queda
+Luego, la ecuaci\'on (3) nos queda:
 \begin{equation}
 x(t) = e^{-\gamma t}(x(0)cos(\omega_{1}t) + \frac{\dot{x}(0) + \gamma x(0)}{\omega_{1}}sin(\omega_{1}t))
 \end{equation}
@@ -140,7 +140,7 @@ Este movimiento corresponde a una oscilaci\'on arm\'onica de frecuencia $\omega_
 $$z_{1} = -\gamma + \sqrt{\gamma^2 - \omega_0^2}$$  $$z_{2} = -\gamma - \sqrt{\gamma^2 - \omega_0^2}$$
 
 
-En este caso, la ecuaci\'on $x(t)$ nos quedara expresada en termino de cosenos y senos hiperb\'olicos. Para las condiciones iniciales procedemos como en el caso del oscilador subamortiguado, por lo tanto la ecuaci\'on de movimiento nos queda
+En este caso, la ecuaci\'on $x(t)$ nos quedar\'a expresada en t\'erminos de cosenos y senos hiperb\'olicos. Para las condiciones iniciales procedemos como en el caso del oscilador subamortiguado, por lo tanto la ecuaci\'on de movimiento nos queda:
 
 \begin{equation}
 x(t) = x(0)e^{-\gamma t}cosh(\sqrt{\gamma^2 - \omega_0^2}t) + \frac{\dot{x}(0) + \gamma x(0)}{\sqrt{\gamma^2 - \omega_0^2}}e^{-\gamma t}sinh(\sqrt{\gamma^2 - \omega_0^2}t)
@@ -164,7 +164,7 @@ Al tener una \'unica ra\'iz doble, debemos considerar soluciones del siguiente t
 
 $$ x(t) = (a+bt)e^{-\gamma t}$$
 
-Al imponer las condiciones iniciales sobre $x(t)$, la soluci\'on nos queda que
+Al imponer las condiciones iniciales sobre $x(t)$, la soluci\'on nos queda:
 
 \begin{equation}
 x(t) = [x(0) + (\dot{x}(0) + \gamma x(0))t]e^{-\gamma t}
@@ -181,7 +181,7 @@ Este movimiento se denomina \textit{oscilatorio con amortiguamiento cr\'itico}.
 
 \end{itemize}
 
-Para el an\'alisis num\'erico, se reescribi\'o la ecuaci\'on de segundo orden (1) como dos ecuaciones de primer orden de la siguiente manera
+Para el an\'alisis num\'erico, se reescribi\'o la ecuaci\'on de segundo orden (1) como dos ecuaciones de primer orden de la siguiente manera:
 
 $$ \begin{cases} \dot{x} = y \\ \dot{y} = -2\gamma y - \omega_0^2 x \end{cases} $$
 
@@ -189,7 +189,7 @@ Este sistema se implemento en el c\'odigo fuente \textit{ODE\_ej2.c} (ver secci\
 
 Para destacar los casos sobre, sub y amortiguado cr\'itico, es necesario aclarar que se utilizaron incrementos de dicha variable con un valor igual a 4, por lo tanto \textit{j} solo toma 3 valores durante la ejecuci\'on del programa: \textit{j} = 1, \textit{j} = 5 y \textit{j} = 9; obteniendo una representaci\'on num\'erica y gr\'afica de los 3 casos mencionados anteriormente.
 
-En el siguiente cuadro se pueden ver los valores num\'ericos para los par\'ametros y condiciones iniciales correspondientes a cada iteraci\'on
+En el siguiente cuadro se pueden ver los valores num\'ericos para los par\'ametros y condiciones iniciales correspondientes a cada iteraci\'on:
 
 \begin{table}
 	\centering
@@ -204,8 +204,10 @@ En el siguiente cuadro se pueden ver los valores num\'ericos para los par\'ametr
     \caption{Valores de los par\'ametros $\gamma$, $\omega_0$ y las condiciones iniciales en cada iteraci\'on. La primera fila corresponde al caso sobreamortiguado ($\gamma^2 > \omega_0^2$), la segunda al caso de amortiguamiento cr\'itico ($\gamma^2 = \omega_0^2$) y la tercera al caso subamortiguado ($\gamma^2 < \omega_0^2$).}
     \label{table:1}
 \end{table}
+\newpage
 
-Los gr\'aficos correspondientes a estos resultados son los siguientes
+
+Los gr\'aficos correspondientes a estos resultados son los siguientes:
 
 \begin{figure}[H]
 \begin{center}
