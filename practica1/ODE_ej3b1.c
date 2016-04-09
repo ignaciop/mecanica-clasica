@@ -31,31 +31,35 @@ int main(){
     double v[2],t,dt,t_pre,t_max;
 
     // Archivo de salida
-    ptr=fopen("ej3c.dat","w");
+    ptr=fopen("ej3b1.dat","w");
 
     dt=0.01;
     t_max=20;
-
-    // Condiciones iniciales fijas
-    v[0] = -0.01;
-    v[1] = 0.05;
 	
-	aa.mu = 5;
+	aa.mu= 0.005;
 
+    // Condiciones iniciales variables.
+    
+    for (j=1;j<=10;j=j+1) {
+        
+        
+        v[0] = 0.2*j;
+        v[1] = -0.2*j;
  
-    t=0.;
-				
-    while(t<t_max) {
-        // Integra las ecuaciones utilizando el metodo de Runge Kutta
-        rk4(ecuaciones,v,2,t,dt);
+        t=0.;
+					
+        while(t<t_max) {
+            // Integra las ecuaciones utilizando el metodo de Runge Kutta
+            rk4(ecuaciones,v,2,t,dt);
+    
+            // Imprime la integracion
+            fprintf(ptr,"%lg\t%lg\t%lg\n",t,v[0],v[1]);
 
-        // Imprime la integracion
-        fprintf(ptr,"%lg\t%lg\t%lg\n",t,v[0],v[1]);
+            t+=dt;
+        }
 
-        t+=dt;
+        fprintf(ptr,"\n");
     }
-
-    fprintf(ptr,"\n");
 
     fclose(ptr);
     return(0);

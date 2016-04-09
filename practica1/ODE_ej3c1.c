@@ -31,7 +31,7 @@ int main(){
     double v[2],t,dt,t_pre,t_max;
 
     // Archivo de salida
-    ptr=fopen("ej3c.dat","w");
+    ptr=fopen("ej3c1.dat","w");
 
     dt=0.01;
     t_max=20;
@@ -40,7 +40,7 @@ int main(){
     v[0] = -0.01;
     v[1] = 0.05;
 	
-	aa.mu = 5;
+	aa.mu = 10;
 
  
     t=0.;

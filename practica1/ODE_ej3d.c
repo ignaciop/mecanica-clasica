@@ -16,8 +16,8 @@ void ecuaciones(int n, double v[], double dv[], double t){
     y=v[1];
 
     // En este caso son 2 ecuaciones acopladas
-    dv[0]= y;
-    dv[1]= -aa.mu*(x*x-1)*y-x;
+    dv[0]= aa.mu*(y-(x*x*x-x));
+    dv[1]= (-1/aa.mu)*x;
   
   return;
 }
@@ -36,11 +36,12 @@ int main(){
     dt=0.01;
     t_max=20;
 
+	aa.mu= 5;
     // Condiciones iniciales variables.
     
-    for (j=1;j<=10;j=j+4) {
+    for (j=1;j<=10;j=j+1) {
         
-        aa.mu= j;
+        
         v[0] = 0.2*j;
         v[1] = -0.2*j;
  

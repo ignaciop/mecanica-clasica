@@ -252,38 +252,226 @@ Podemos destacar dos reg\'imenes interesantes para este oscilador, dependientes 
 \item Si $\mu$ = 0, no hay amortiguamiento y la ecuaci\'on (2) queda:
 $$ \frac{d^2 x}{dt^2} + x = 0 $$
 Es la f\'ormula del oscilador arm\'onico simple sin p\'erdida de energ\'ia.
-\item Si $\mu$ > 0, el sistema alcanzar\'a un ciclo l\'imite, en el que se conservar\'a la energ\'ia. Cerca del origen $x$ = $\frac{dx}{dt}$ = 0, el sistema es inestable; y lejos del origen hay amortiguamiento.
+\item Si $\mu$ $>$ 0, el sistema alcanzar\'a un ciclo l\'imite, en el que se conservar\'a la energ\'ia. Cerca del origen $x$ = $\frac{dx}{dt}$ = 0, el sistema es inestable; y lejos del origen hay amortiguamiento.
 \end{itemize}
 
-Este \'ultimo caso es el m\'as interesante y para el cual se analizaron num\'ericamente dos posibilidades: amortiguamiento muy peque\~no ($\mu$ < < 1) y amortiguamiento muy grande ($\mu$ > > 1)
+Este \'ultimo caso es el m\'as interesante y para el cual se analizaron num\'ericamente dos posibilidades: amortiguamiento muy peque\~no ($\mu$ $<<$ 1) y amortiguamiento muy grande ($\mu$ $>>$ 1)
 
 Este sistema se implemento en el c\'odigo fuente \textit{ODE\_ej3.c} (ver secci\'on Ap\'endice). Se aumento el tiempo de muestreo a 20 segundos con respecto al ejercicio anterior, para poder ver detalladamente el espacio de fases de este oscilador.
+Se decidi\'o graficar con l\'ineas continuas para facilitar la visualizaci\'on de la posici\'on, velocidad y espacio de fases de este oscilador.
 
 \begin{itemize}
-\item $\mu$ < < 1:
+\item $\mu$ $<<$ 1:
 
 
-En primera instancia, se dejaron las condiciones iniciales fijas ($x$(0) = -0.01 y $\dot{x}$(0) = 0.05). Como en el oscilador amortiguado, se utilizo una variable \textit{j} dentro del bucle \textit{for} para ir variando el parametro $\mu$. (mu1 = , mu2 = mu3 =). Cabe aclarar que \textit{j} tiene el mismo comportamiento que en el codigo para el oscilador amortiguado.
+En primera instancia, se dejaron las condiciones iniciales fijas ($x$(0) = -0.01 y $\dot{x}$(0) = 0.05). El par\'ametro $\mu$ toma los valores $\mu_1$ = 0.05 y $\mu_2$ = 0.005 en cada ejecuci\'on. 
 
-GRAFICOS PARA MU CHICOS VARIABLES y CI FIJAS
+\begin{figure}[H]
+\begin{center}
+\includegraphics[height=8cm]{grafico_ej3_xVSt.jpg}
+\caption[width=5cm]{Posici\'on en funci\'on del tiempo para $\mu_1$ = 0.05 y condiciones iniciales fijas.}
+\end{center}
+\end{figure}
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[height=8cm]{grafico_ej3_vVSt.jpg}
+\caption[width=5cm]{Velocidad en funci\'on del tiempo para $\mu_1$ = 0.05 y condiciones iniciales fijas.}
+\end{center}
+\end{figure}
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[height=8cm]{grafico_ej3_xVSv.jpg}
+\caption[width=5cm]{Espacio de fases para $\mu_1$ = 0.05 y condiciones iniciales fijas.}
+\end{center}
+\end{figure}
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[height=8cm]{grafico_ej31_xVSt.jpg}
+\caption[width=5cm]{Posici\'on en funci\'on del tiempo para $\mu_2$ = 0.005 y condiciones iniciales fijas.}
+\end{center}
+\end{figure}
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[height=8cm]{grafico_ej31_vVSt.jpg}
+\caption[width=5cm]{Velocidad en funci\'on del tiempo para $\mu_2$ = 0.005 y condiciones iniciales fijas.}
+\end{center}
+\end{figure}
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[height=8cm]{grafico_ej31_xVSv.jpg}
+\caption[width=5cm]{Espacio de fases para $\mu_2$ = 0.005 y condiciones iniciales fijas.}
+\end{center}
+\end{figure}
+
+Podemos observar que, con estos valores de $\mu$, el sistema se comporta como un oscilador armonico; sobre todo en el caso $\mu_2$ = 0.005.
+
+MAS ANALISIS...
 
 
-En una segunda instancia, las condiciones iniciales tambien se variaron dentro del mismo bucle. La siguiente tabla muestra los valores correspondientes a este caso:
+En una segunda instancia, las condiciones iniciales se variaron dentro de un bucle \textit{for}, esta vez con un iterador \textit{j} incrementado de a 1, con los mismos valores de $\mu_1$ y $\mu_2$. La siguiente tabla muestra los valores correspondientes a este caso:
 
-TABLA CON VALOR PARA MU CHICOS VARIABLES y CI VARIABLES
+\begin{table}
+	\centering
+    \begin{tabular}{| l | l | l | l | l | l | l | l | l | l |p{1cm}|}
+    \hline
+    \textit{j} & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 \\ \hline
+    $x(0)$ & 0.2 & 0.4 & 0.6 & 0.8 & 1 & 1.2 & 1.4 & 1.6 & 1.8 & 2 \\ \hline
+    $\dot{x}(0)$ & -0.2 & -0.4 & -0.6 & -0.8 & -1 & -1.2 & -1.4 & -1.6 & -1.8 & -2 \\
+    \hline
+    \end{tabular}
+    \caption{Condiciones iniciales en cada iteraci\'on para valores de $\mu_1$ = 0.05 y $\mu_2$ = 0.005.}
+    \label{table:2}
+\end{table}
 
 
-\item $\mu$ > > 1:
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[height=8cm]{grafico_ej3b_xVSt.jpg}
+\caption[width=5cm]{Posici\'on en funci\'on del tiempo para $\mu_1$ = 0.05 y condiciones iniciales variables.}
+\end{center}
+\end{figure}
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[height=8cm]{grafico_ej3b_vVSt.jpg}
+\caption[width=5cm]{Velocidad en funci\'on del tiempo para $\mu_1$ = 0.05 y condiciones iniciales variables.}
+\end{center}
+\end{figure}
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[height=8cm]{grafico_ej3b_xVSv.jpg}
+\caption[width=5cm]{Espacio de fases para $\mu_1$ = 0.05 y condiciones iniciales variables.}
+\end{center}
+\end{figure}
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[height=8cm]{grafico_ej3b1_xVSt.jpg}
+\caption[width=5cm]{Posici\'on en funci\'on del tiempo para $\mu_2$ = 0.005 y condiciones iniciales variables.}
+\end{center}
+\end{figure}
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[height=8cm]{grafico_ej3b1_vVSt.jpg}
+\caption[width=5cm]{Velocidad en funci\'on del tiempo para $\mu_2$ = 0.005 y condiciones iniciales variables.}
+\end{center}
+\end{figure}
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[height=8cm]{grafico_ej3b1_xVSv.jpg}
+\caption[width=5cm]{Espacio de fases para $\mu_2$ = 0.005 y condiciones iniciales variables.}
+\end{center}
+\end{figure}
+
+MAS ANALISIS....
+------------------------------------
 
 
-Como en el caso anterior, primero se dejaron las condiciones iniciales fijas ($x$(0) = -0.01 y $\dot{x}$(0) = 0.05), variando el parametro $\mu$. (mu1 = , mu2 =, mu3 =)
-
-TABLA CON VALOR PARA MU GRANDES VARIABLES y CI FIJAS
+\item $\mu$ $>>$ 1:
 
 
-Luego, las condiciones iniciales tambien se variaron dentro del mismo bucle. La siguiente tabla muestra los valores correspondientes a este caso:
+Como en el caso anterior, primero se dejaron las condiciones iniciales fijas ($x$(0) = -0.01 y $\dot{x}$(0) = 0.05), variando el par\'ametro $\mu$ en cada ejecuci\'on por separado. ($\mu_1$ = 5 y $\mu_2$ = 10). Los graficos de posicion, velocidad y espacio de fases para dichos $\mu$ son los siguientes:
 
-TABLA CON VALOR PARA MU GRANDES VARIABLES y CI VARIABLES
+\begin{figure}[H]
+\begin{center}
+\includegraphics[height=8cm]{grafico_ej3c_xVSt.jpg}
+\caption[width=5cm]{Posici\'on en funci\'on del tiempo para $\mu_1$ = 5 y condiciones iniciales fijas.}
+\end{center}
+\end{figure}
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[height=8cm]{grafico_ej3c_vVSt.jpg}
+\caption[width=5cm]{Velocidad en funci\'on del tiempo para $\mu_1$ = 5 y condiciones iniciales fijas.}
+\end{center}
+\end{figure}
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[height=8cm]{grafico_ej3c_xVSv.jpg}
+\caption[width=5cm]{Espacio de fases para $\mu_1$ = 5 y condiciones iniciales fijas.}
+\end{center}
+\end{figure}
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[height=8cm]{grafico_ej3c1_xVSt.jpg}
+\caption[width=5cm]{Posici\'on en funci\'on del tiempo para $\mu_2$ = 10 y condiciones iniciales fijas.}
+\end{center}
+\end{figure}
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[height=8cm]{grafico_ej3c1_vVSt.jpg}
+\caption[width=5cm]{Velocidad en funci\'on del tiempo para $\mu_2$ = 10 y condiciones iniciales fijas.}
+\end{center}
+\end{figure}
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[height=8cm]{grafico_ej3c1_xVSv.jpg}
+\caption[width=5cm]{Espacio de fases para $\mu_2$ = 10 y condiciones iniciales fijas.}
+\end{center}
+\end{figure}
+
+
+
+
+Finalmente, las condiciones iniciales tambi\'en se variaron dentro bucle for, con los mismos valores que muestra el cuadro (2). Los gr\'aficos para este caso son los siguientes:
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[height=8cm]{grafico_ej3d_xVSt.jpg}
+\caption[width=5cm]{Posici\'on en funci\'on del tiempo para $\mu_1$ = 5 y condiciones iniciales variables.}
+\end{center}
+\end{figure}
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[height=8cm]{grafico_ej3d_vVSt.jpg}
+\caption[width=5cm]{Velocidad en funci\'on del tiempo para $\mu_1$ = 5 y condiciones iniciales variables.}
+\end{center}
+\end{figure}
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[height=8cm]{grafico_ej3d_xVSv.jpg}
+\caption[width=5cm]{Espacio de fases para $\mu_1$ = 5 y condiciones iniciales variables.}
+\end{center}
+\end{figure}
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[height=8cm]{grafico_ej3d1_xVSt.jpg}
+\caption[width=5cm]{Posici\'on en funci\'on del tiempo para $\mu_2$ = 10 y condiciones iniciales variables.}
+\end{center}
+\end{figure}
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[height=8cm]{grafico_ej3d1_vVSt.jpg}
+\caption[width=5cm]{Velocidad en funci\'on del tiempo para $\mu_2$ = 10 y condiciones iniciales variables.}
+\end{center}
+\end{figure}
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[height=8cm]{grafico_ej3d1_xVSv.jpg}
+\caption[width=5cm]{Espacio de fases para $\mu_2$ = 10 y condiciones iniciales variables.}
+\end{center}
+\end{figure}
+
+MAS ANALISIS.-------
+
 
 \end{itemize}
 
@@ -300,6 +488,8 @@ Los archivos que contienen los datos num\'ericos $(ej2.dat$ y $ej3.dat)$ no fuer
 
 \subsection{C\'odigo fuente en C del oscilador de Van der Pol (ODE\_ej3.c)}
 Se transcribi\'o un solo caso de este c\'odigo, las peque\~nas modificaciones para los casos restantes est\'an se\~nalados en el an\'alisis del oscilador.
+
+\lstinputlisting[language=C,breaklines]{../ODE_ej3.c}
 
 \subsection{C\'odigo fuente en C del m\'etodo de Runge-Kutta de orden 4 provisto por la c\'atedra (rk4.c)}
 \lstinputlisting[language=C,breaklines]{../rk4.c}

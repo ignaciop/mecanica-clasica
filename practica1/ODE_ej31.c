@@ -31,17 +31,15 @@ int main(){
     double v[2],t,dt,t_pre,t_max;
 
     // Archivo de salida
-    ptr=fopen("ej3c.dat","w");
+    ptr=fopen("ej31.dat","w");
 
     dt=0.01;
     t_max=20;
 
-    // Condiciones iniciales fijas
+    // Condiciones iniciales fijas y mu=0.005
     v[0] = -0.01;
     v[1] = 0.05;
-	
-	aa.mu = 5;
-
+	aa.mu= 0.005;
  
     t=0.;
 				
