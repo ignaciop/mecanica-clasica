@@ -242,6 +242,8 @@ Se observa adem\'as la gran amplitud y frecuencia inicial de esta funci\'on con 
 
 \subsection{Oscilador de Van der Pol}
 
+El oscilador de Van der Pol tiene un solo punto de equilibrio, que es el punto P(0,0), el cual siempre resulta ser inestable, pero todas las trayectorias a partir de \'el tienden en espiral a un ciclo l\'imite y a \'este tambi\'en tienden a decaer aquellas trayectorias cuyas amplitudes son m\'as grandes que la amplitud del ciclo l\'imite.
+
 Para realizar el an\'alisis num\'erico de este oscilador no-lineal, se reescribi\'o la ecuaci\'on de segundo orden (2) como dos ecuaciones de primer orden utilizando las ecuaciones de Li\'enard:
 
 $$ \begin{cases} \dot{x} = \mu (y-(x^3-x)) \\ \dot{y} = -\frac{1}{\mu}x \end{cases} $$
@@ -308,10 +310,6 @@ En primera instancia, se dejaron las condiciones iniciales fijas ($x$(0) = -0.01
 \end{center}
 \end{figure}
 
-Podemos observar que, con estos valores de $\mu$, el sistema se comporta como un oscilador armonico; sobre todo en el caso $\mu_2$ = 0.005.
-
-MAS ANALISIS...
-
 
 En una segunda instancia, las condiciones iniciales se variaron dentro de un bucle \textit{for}, esta vez con un iterador \textit{j} incrementado de a 1, con los mismos valores de $\mu_1$ y $\mu_2$. La siguiente tabla muestra los valores correspondientes a este caso:
 
@@ -372,8 +370,9 @@ En una segunda instancia, las condiciones iniciales se variaron dentro de un buc
 \end{center}
 \end{figure}
 
-MAS ANALISIS....
-------------------------------------
+Se puede observar que, para $\mu$ $<<$ 1, el termino cuadr\'atico de la ecuaci\'on (2) es muy peque\~no y el comportamiento es similar al de un oscilador arm\'onico amortiguado. Esto se puede ver claramente en los espacios de fases en los casos analizados; sobre todo cuando $\mu = \mu_2$ = 0.005 y las condiciones son variables, podemos distinguir varios ciclos l\'imite representados por c\'irculos marcados con l\'ineas m\'as gruesas alrededor del punto de equilibrio (0,0), a los cuales convergen las distintas trayectorias impuestas por las condiciones iniciales variables (Figura 18).
+Estos resultados son consistentes con los obtenidos para las condiciones iniciales fijas (Figura 12), repiti\'endose el mismo diagrama de fases con amplitudes m\'as grandes, seg\'un el valor de la variable \textit{j} detallada en el Cuadro 2.
+
 
 
 \item $\mu$ $>>$ 1:
@@ -425,8 +424,7 @@ Como en el caso anterior, primero se dejaron las condiciones iniciales fijas ($x
 
 
 
-
-Finalmente, las condiciones iniciales tambi\'en se variaron dentro bucle for, con los mismos valores que muestra el cuadro (2). Los gr\'aficos para este caso son los siguientes:
+Finalmente, las condiciones iniciales tambi\'en se variaron dentro bucle for, con los mismos valores que muestra el Cuadro 2. Los gr\'aficos para este caso son los siguientes:
 
 \begin{figure}[H]
 \begin{center}
@@ -470,7 +468,21 @@ Finalmente, las condiciones iniciales tambi\'en se variaron dentro bucle for, co
 \end{center}
 \end{figure}
 
-MAS ANALISIS.-------
+
+Para $\mu$ $<<$ 1, y de acuerdo a los gr\'aficos correspondientes, es mas claro ver que pasa cuando las condiciones iniciales est\'an fijas.
+Tambi\'en aqu\'i se presenta el punto de equilibrio inestable (0,0), por ejemplo en el caso $\mu = \mu_1$ = 5 (Figura 21); en el cual en un instante inicial, el sistema se desplaza r\'apidamente desde este punto hacia $x$ = 1; para luego realizar un desplazamiento mucho m\'as lento en el sentido vertical desde ($x$,$y$) = (1,-0.5) hasta ($x$,$y$) = (-1,-0.5).
+Llegado este punto, se repite nuevamente el movimiento r\'apido en sentido horizontal hasta $x$ = -1, y luego el lento hacia arriba, desde ($x$,$y$) = (-1, -0.5) hasta ($x$,$y$) = (-1, 0.5).
+Cualitativamente, para el caso $\mu = \mu_2$ = 10, el movimiento es id\'entico al detallado arriba.
+
+Para finalizar, el siguiente gr\'afico da una idea de la rapidez de los movimientos descriptos:
+
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[height=8cm]{grafico_movimientos.jpg}
+\caption[width=5cm]{Movimientos r\'apidos y lentos del oscilador de Van der Pol. Para los casos estudiados en este trabajo, $F(x)$ = $x^3 - x$.}
+\end{center}
+\end{figure}
 
 
 \end{itemize}
@@ -479,7 +491,7 @@ MAS ANALISIS.-------
 
 Descargar el archivo $guia1\_poggi.zip$ y descomprimirlo en una carpeta a elecci\'on del usuario, abrir una terminal dentro de la carpeta $\sim \backslash mecanica-clasica\backslash practica1$; y seguir las instrucciones provistas en la secci\'on Enunciado.
 
-Los archivos que contienen los datos num\'ericos $(ej2.dat$ y $ej3.dat)$ no fueron transcriptos en este informe dada la extensi\'on de los mismos.
+Los archivos que contienen los datos num\'ericos $(ej2.dat$ y $ej3X.dat)$ no fueron transcriptos en este informe dada la extensi\'on de los mismos.
 
 
 \subsection{C\'odigo fuente en C del oscilador arm\'onico amortiguado (ODE\_ej2.c)}
