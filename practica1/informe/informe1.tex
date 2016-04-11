@@ -10,6 +10,17 @@
 \usepackage{float}
 \usepackage{subfig}
 \usepackage{listings}
+\lstset
+{ %Formatting for code in appendix
+    language=C,
+    basicstyle=\footnotesize,
+    numbers=left,
+    stepnumber=1,
+    showstringspaces=false,
+    tabsize=4,
+    breaklines=true,
+    breakatwhitespace=false,
+}
 
 %caracteristicas de paginas
 \pdfpagewidth 8.5in
@@ -65,7 +76,7 @@ El oscilador arm\'onico amotiguado es un problema del cual se conoce la soluci\'
 	\frac{d^2 x}{dt^2} + 2\gamma\frac{dx}{dt} + \omega_0^2x = 0
 \end{equation}
 
-Estudie num\'ericamente las soluciones del sistema seg\'un la relaci\'on de los par\'ametros, para ello: escriba la ecuaci\'on de segundo orden como dos ecuaciones de primer orden, var\'ie $\gamma$ y $\omega$ e integre. Tambi\'en analice distintas condiciones iniciales. Compare con lo conocido de la soluci\'on anal\'itica, para ello grafique como evoluciona la posici\'on en el tiempo, la velocidad y cu\'al es la trayectoria en el espacio de fases $x  \ddot{x}$.\newline
+Estudie num\'ericamente las soluciones del sistema seg\'un la relaci\'on de los par\'ametros, para ello: escriba la ecuaci\'on de segundo orden como dos ecuaciones de primer orden, var\'ie $\gamma$ y $\omega$ e integre. Tambi\'en analice distintas condiciones iniciales. Compare con lo conocido de la soluci\'on anal\'itica, para ello grafique como evoluciona la posici\'on en el tiempo, la velocidad y cu\'al es la trayectoria en el espacio de fases $x  \dot{x}$.\newline
 
 
 {\Large \textbf{Actividad 3 - Oscilador de Van der Pol}}
@@ -80,8 +91,8 @@ Este sistema presenta soluciones oscilatorias para ciertos valores del par\'amet
 
 \begin{itemize}
 \item Escriba el sistema como dos ecuaciones de primer orden.
-\item Inspeccione num\'ericamente las soluciones posibles del sistema, estudie como var\'ian seg\'un la variaci\'on del par\'ametro $\mu$. Para ello grafique la trayectoria $x$ en funci\'on del tiempo, la velocidad $\ddot{x}$ en funci\'on del tiempo y tambi\'en el espacio de fases $x  \ddot{x}$.
-\item Modifique tambi\'en las condiciones iniciales y estudie num\'ericamente las respuestas del sistema. Para ello grafique la trayectoria $x$ en funci\'on del tiempo, la velocidad $\ddot{x}$ en funci\'on del tiempo y tambi\'en el espacio de fases $x  \ddot{x}$.
+\item Inspeccione num\'ericamente las soluciones posibles del sistema, estudie como var\'ian seg\'un la variaci\'on del par\'ametro $\mu$. Para ello grafique la trayectoria $x$ en funci\'on del tiempo, la velocidad $\dot{x}$ en funci\'on del tiempo y tambi\'en el espacio de fases $x  \dot{x}$.
+\item Modifique tambi\'en las condiciones iniciales y estudie num\'ericamente las respuestas del sistema. Para ello grafique la trayectoria $x$ en funci\'on del tiempo, la velocidad $\dot{x}$ en funci\'on del tiempo y tambi\'en el espacio de fases $x  \dot{x}$.
 \end{itemize}
 
 
@@ -107,7 +118,7 @@ Las unidades utilizadas a lo largo de este trabajo son las siguientes:
 El oscilador arm\'onico amotiguado es el caso generalizado de los osciladores arm\'onicos libres ya que su comportamiento contempla la disipaci\'on de energ\'ia pero no la presencia de fuerzas externas. Su comportamiento est\'a dado por (1).
 Para obtener las soluciones de dicha ecuaci\'on, se propone una con la forma $x(t) = e^{zt}$, con $z \in \mathbb{C}$ (luego $\dot{x}(t) = ze^{zt}$ y $\ddot{x}(t) = z^2e^{zt}$) \textbf{[I]}.
 
-Reemplazando el $x(t)$ y sus derivadas en (1), se obtiene la siguiente ecuaci\'on cuadr\'atica para $z$:
+Reemplazando $x(t)$ y sus derivadas en (1), se obtiene la siguiente ecuaci\'on cuadr\'atica para $z$:
 
 $$
 (z^2 + 2\gamma z + \omega_o^2)e^{zt}=0
@@ -119,21 +130,21 @@ $$
 z_{1,2} = \frac{-2\gamma \pm \sqrt{4\gamma^2 - 4\omega_0^2}}{2} = -\gamma \pm \sqrt{\gamma^2 - \omega_0^2}
 $$
 
-Podemos distinguir tres casos que, a continuaci\'on, analizamos por separado.
+Se pueden distinguir tres casos que, a continuaci\'on, se analizan por separado.
 
 \begin{itemize}
-\item Si $\omega_0^2 > \gamma^2$, tenemos dos raices complejas
+\item Si $\omega_0^2 > \gamma^2$, se obtienen dos raices complejas
 $$z_{1} = -\gamma + i\sqrt{\omega_0^2 - \gamma^2}$$  $$z_{2} = -\gamma - i\sqrt{\omega_0^2 - \gamma^2}$$
-Sea $\omega_{1} = \sqrt{\omega_0^2 - \gamma^2}$. Reemplazando esta nueva frecuencia en la soluci\'on propuesta y tomando su parte real, tenemos que:
+Sea $\omega_{1} = \sqrt{\omega_0^2 - \gamma^2}$. Reemplazando esta nueva frecuencia en la soluci\'on propuesta y tomando su parte real:
 \begin{equation}
 x(t) = e^{-\gamma t}(acos(\omega_{1}t) + bsin(\omega_{1}t))
 \end{equation}
 
 $$\dot{x}(t) = e^{-\gamma t}((\omega_{1}b - \gamma a)acos(\omega_{1}t) + (\omega_{1}a - \gamma b)bsin(\omega_{1}t))$$
 
-donde $a$ y $b$ se determinan con las condiciones iniciales
+donde $a$ y $b$ se determinan con las condiciones iniciales:
 $$ x(0) = a, \dot{x}(0) = \omega_{1}b - \gamma a$$
-Luego, la ecuaci\'on (3) nos queda \textbf{[II]}:
+Luego, la ecuaci\'on (3) queda de la siguiente manera \textbf{[II]}:
 \begin{equation}
 x(t) = e^{-\gamma t}(x(0)cos(\omega_{1}t) + \frac{\dot{x}(0) + \gamma x(0)}{\omega_{1}}sin(\omega_{1}t))
 \end{equation}
@@ -147,11 +158,11 @@ Este movimiento corresponde a una oscilaci\'on arm\'onica de frecuencia $\omega_
 \end{center}
 \end{figure}
 
-\item Si $\omega_0^2 < \gamma^2$, tenemos dos raices reales
+\item Si $\omega_0^2 < \gamma^2$, se obtienen dos raices reales
 $$z_{1} = -\gamma + \sqrt{\gamma^2 - \omega_0^2}$$  $$z_{2} = -\gamma - \sqrt{\gamma^2 - \omega_0^2}$$
 
 
-En este caso, la ecuaci\'on $x(t)$ nos quedar\'a expresada en t\'erminos de cosenos y senos hiperb\'olicos. Para las condiciones iniciales procedemos como en el caso del oscilador subamortiguado, por lo tanto la ecuaci\'on de movimiento nos queda \textbf{[III]}:
+En este caso, la ecuaci\'on $x(t)$ quedar\'a expresada en t\'erminos de cosenos y senos hiperb\'olicos. Para las condiciones iniciales se procede como en el caso del oscilador subamortiguado, por lo tanto la ecuaci\'on de movimiento queda \textbf{[III]}:
 
 \begin{equation}
 x(t) = x(0)e^{-\gamma t}cosh(\sqrt{\gamma^2 - \omega_0^2}t) + \frac{\dot{x}(0) + \gamma x(0)}{\sqrt{\gamma^2 - \omega_0^2}}e^{-\gamma t}sinh(\sqrt{\gamma^2 - \omega_0^2}t)
@@ -167,15 +178,15 @@ Este movimiento se denomina \textit{oscilatorio sobreamortiguado}.
 \end{figure}
 
 
-\item Si $\omega_0^2 = \gamma^2$, tenemos una ra\'iz real doble
+\item Si $\omega_0^2 = \gamma^2$, se obtiene una ra\'iz real doble:
 
 $$z_{1,2} = -\gamma$$
 
-Al tener una \'unica ra\'iz doble, debemos considerar soluciones del siguiente tipo: 
+Al tener una \'unica ra\'iz doble, considero soluciones del siguiente tipo: 
 
 $$ x(t) = (a+bt)e^{-\gamma t}$$
 
-Al imponer las condiciones iniciales sobre $x(t)$, la soluci\'on nos queda \textbf{[IV]}:
+Al imponer las condiciones iniciales sobre $x(t)$, la soluci\'on queda \textbf{[IV]}:
 
 \begin{equation}
 x(t) = [x(0) + (\dot{x}(0) + \gamma x(0))t]e^{-\gamma t}
@@ -196,7 +207,7 @@ Para el an\'alisis num\'erico, se reescribi\'o la ecuaci\'on de segundo orden (1
 
 $$ \begin{cases} \dot{x} = y \\ \dot{y} = -2\gamma y - \omega_0^2 x \end{cases} $$
 
-Este sistema se implemento en el c\'odigo fuente \textit{ODE\_ej2.c} (ver secci\'on Ap\'endice). Se utiliz\'o una variable \textit{j} dentro del bucle \textit{for} para ir iterando los distintos valores de $\gamma$ y $\omega_0$, as\'i como tambi\'en las condiciones iniciales $x(0)$ y $\dot{x}(0)$; desde $j$ = 1 hasta \textit{j} = 10. El tiempo m\'aximo de muestreo fue de 2 segundos.
+Este sistema se implement\'o en el c\'odigo fuente \textit{ODE\_ej2.c} (ver secci\'on \textbf{Ap\'endice}). Se utiliz\'o una variable \textit{j} dentro del bucle \textit{for} para ir iterando los distintos valores de $\gamma$ y $\omega_0$, as\'i como tambi\'en las condiciones iniciales $x(0)$ y $\dot{x}(0)$; desde $j$ = 1 hasta \textit{j} = 10. El tiempo m\'aximo de muestreo fue de 2 segundos.
 
 Para destacar los casos sobre, sub y amortiguado cr\'itico, es necesario aclarar que se utilizaron incrementos de dicha variable con un valor igual a 4, por lo tanto \textit{j} solo toma 3 valores durante la ejecuci\'on del programa: \textit{j} = 1, \textit{j} = 5 y \textit{j} = 9; obteniendo una representaci\'on num\'erica y gr\'afica de los 3 casos mencionados anteriormente.
 
@@ -245,7 +256,7 @@ Se observa en los gr\'aficos que el integrador de Runge-Kutta de orden 4 provist
 
 Tambi\'en podemos ver que, en el caso sobreamortiguado, como $\gamma^2$ = 81 y $\omega_0^2$ = 1, el amortiguamiento es excesivo frente a la oscilaci\'on natural del sistema, por lo tanto la posici\'on y velocidad decaen muy rapidamente, sin llegar a 0. Esta situaci\'on en el espacio de fases esta representada por una linea muy corta, se\~nalada al principio y al final con el numero 2.
 
-Para el caso de amortiguamiento cr\'itico, $\gamma^2$ = $\omega_0^2$ = 25, la funci\'on $x(t)$ presenta un decaimiento exponencial, similar al caso sobreamortiguado. En un oscilador de estas caracter\'isticas, el retorno a la posici\'on de equilibrio se da r\'apidamente. En el espacio de fases se puede ver como la linea gruesa marcada con el numero 1 al principio y al final de la misma.
+Para el caso de amortiguamiento cr\'itico, $\gamma^2$ = $\omega_0^2$ = 25, la funci\'on $x(t)$ presenta un decaimiento exponencial, similar al caso sobreamortiguado. En un oscilador de estas caracter\'isticas, el retorno a la posici\'on de equilibrio se da r\'apidamente. En el espacio de fases se puede ver como la l\'inea gruesa marcada con el numero 1 al principio y al final de la misma.
 
 En el caso subamortiguado, $\gamma^2$ = 1 y $\omega_0^2$ = 81. Esto se ve reflejado en una gr\'afica cosenoidal con una envolvente exponencial que decae mas lentamente que en los otros dos casos, y se hace 0 en un tiempo mas largo que el tiempo de muestreo de 2 segundos. \newline
 Se observa adem\'as la gran amplitud y frecuencia inicial de esta funci\'on con respecto a los casos sobreamortiguado y amortiguado cr\'itico, debido a los valores de ${x}(0)$ y $\omega_0^2$ asignados a este caso. En el espacio de fases se puede ver como la curva marcada al principio y al final con el numero 3.
@@ -255,7 +266,7 @@ Se observa adem\'as la gran amplitud y frecuencia inicial de esta funci\'on con 
 
 El oscilador de Van der Pol tiene un solo punto de equilibrio, que es el punto P(0,0), el cual siempre resulta ser inestable, pero todas las trayectorias a partir de \'el tienden en espiral a un ciclo l\'imite y a \'este tambi\'en tienden a decaer aquellas trayectorias cuyas amplitudes son m\'as grandes que la amplitud del ciclo l\'imite \textbf{[VI]}.
 
-Para realizar el an\'alisis num\'erico de este oscilador no-lineal, se reescribi\'o la ecuaci\'on de segundo orden (2) como dos ecuaciones de primer orden utilizando las ecuaciones de Li\'enard \textbf{[VII]}:
+Para realizar el an\'alisis num\'erico de este oscilador no-lineal, se reescribi\'o la ecuaci\'on de segundo orden (2) como dos ecuaciones de primer orden utilizando las transformaciones de Li\'enard \textbf{[VII]}:
 
 $$ \begin{cases} \dot{x} = \mu (y-(x^3-x)) \\ \dot{y} = -\frac{1}{\mu}x \end{cases} $$
 
@@ -268,7 +279,7 @@ Es la f\'ormula del oscilador arm\'onico simple sin p\'erdida de energ\'ia.
 \item Si $\mu$ $>$ 0, el sistema alcanzar\'a un ciclo l\'imite, en el que se conservar\'a la energ\'ia. Cerca del origen $x$ = $\frac{dx}{dt}$ = 0, el sistema es inestable; y lejos del origen hay amortiguamiento.
 \end{itemize}
 
-Este \'ultimo caso es el m\'as interesante y para el cual se analizaron num\'ericamente dos posibilidades: amortiguamiento muy peque\~no ($\mu$ $<<$ 1) y amortiguamiento muy grande ($\mu$ $>>$ 1)
+Este \'ultimo caso es el m\'as interesante y para el cual se analizaron num\'ericamente dos posibilidades: amortiguamiento muy peque\~no ($\mu$ $<<$ 1) y amortiguamiento muy grande ($\mu$ $>>$ 1).
 
 Este sistema se implemento en el c\'odigo fuente \textit{ODE\_ej3.c} (ver secci\'on Ap\'endice). Se aumento el tiempo de muestreo a 20 segundos con respecto al ejercicio anterior, para poder ver detalladamente el espacio de fases de este oscilador.
 Se decidi\'o graficar con l\'ineas continuas para facilitar la visualizaci\'on de la posici\'on, velocidad y espacio de fases de este oscilador.
@@ -277,7 +288,7 @@ Se decidi\'o graficar con l\'ineas continuas para facilitar la visualizaci\'on d
 \item $\mu$ $<<$ 1:
 
 
-En primera instancia, se dejaron las condiciones iniciales fijas ($x$(0) = -0.01 y $\dot{x}$(0) = 0.05). El par\'ametro $\mu$ toma los valores $\mu_1$ = 0.05 y $\mu_2$ = 0.005 en cada ejecuci\'on. 
+En primera instancia, se dejaron las condiciones iniciales fijas ($x$(0) = -0.01 y $\dot{x}$(0) = 0.05). El par\'ametro $\mu$ toma los valores $\mu_1$ = 0.05 y $\mu_2$ = 0.005 en cada ejecuci\'on. Los gr\'aficos correspondientes a estos resultados son los siguientes:
 
 \begin{figure}[H]
 \begin{center}
@@ -299,6 +310,7 @@ En primera instancia, se dejaron las condiciones iniciales fijas ($x$(0) = -0.01
 \caption[width=5cm]{Espacio de fases para $\mu_1$ = 0.05 y condiciones iniciales fijas.}
 \end{center}
 \end{figure}
+
 
 \begin{figure}[H]
 \begin{center}
@@ -324,7 +336,7 @@ En primera instancia, se dejaron las condiciones iniciales fijas ($x$(0) = -0.01
 
 En una segunda instancia, las condiciones iniciales se variaron dentro de un bucle \textit{for}, esta vez con un iterador \textit{j} incrementado de a 1, con los mismos valores de $\mu_1$ y $\mu_2$. La siguiente tabla muestra los valores correspondientes a este caso:
 
-\begin{table}
+\begin{table}[b]
 	\centering
     \begin{tabular}{| l | l | l | l | l | l | l | l | l | l |p{1cm}|}
     \hline
@@ -389,7 +401,7 @@ Estos resultados son consistentes con los obtenidos para las condiciones inicial
 \item $\mu$ $>>$ 1:
 
 
-Como en el caso anterior, primero se dejaron las condiciones iniciales fijas ($x$(0) = -0.01 y $\dot{x}$(0) = 0.05), variando el par\'ametro $\mu$ en cada ejecuci\'on por separado. ($\mu_1$ = 5 y $\mu_2$ = 10). Los graficos de posicion, velocidad y espacio de fases para dichos $\mu$ son los siguientes:
+Como en el caso anterior, primero se dejaron las condiciones iniciales fijas ($x$(0) = -0.01 y $\dot{x}$(0) = 0.05), variando el par\'ametro $\mu$ en cada ejecuci\'on por separado ($\mu_1$ = 5 y $\mu_2$ = 10). Los gr\'aficos de posici\'on, velocidad y espacio de fases para dichos $\mu$ son los siguientes:
 
 \begin{figure}[H]
 \begin{center}
@@ -435,7 +447,7 @@ Como en el caso anterior, primero se dejaron las condiciones iniciales fijas ($x
 
 
 
-Finalmente, las condiciones iniciales tambi\'en se variaron dentro bucle for, con los mismos valores que muestra el Cuadro 2. Los gr\'aficos para este caso son los siguientes:
+Finalmente, las condiciones iniciales tambi\'en se variaron dentro de un bucle \textit{for}, con los mismos valores que muestra el Cuadro 2. Los gr\'aficos para este caso son los siguientes:
 
 \begin{figure}[H]
 \begin{center}
@@ -480,11 +492,13 @@ Finalmente, las condiciones iniciales tambi\'en se variaron dentro bucle for, co
 \end{figure}
 
 
-Para $\mu$ $<<$ 1, y de acuerdo a los gr\'aficos correspondientes, es mas claro ver que pasa cuando las condiciones iniciales est\'an fijas.
+Para $\mu$ $>>$ 1, y de acuerdo a los gr\'aficos correspondientes, es m\'as claro ver qu\'e pasa cuando las condiciones iniciales est\'an fijas.
+
 Tambi\'en aqu\'i se presenta el punto de equilibrio inestable (0,0), por ejemplo en el caso $\mu = \mu_1$ = 5 (Figura 21); en el cual en un instante inicial, el sistema se desplaza r\'apidamente desde este punto hacia $x$ = 1; para luego realizar un desplazamiento mucho m\'as lento en el sentido vertical desde ($x$,$y$) = (1,0) hasta ($x$,$y$) = (1,-0.5).
+
 Llegado este punto, se repite nuevamente el movimiento r\'apido en sentido horizontal hasta $x$ = -1, y luego el lento hacia arriba, desde ($x$,$y$) = (-1, -0.5) hasta ($x$,$y$) = (-1, 0.5); repiti\'endose el ciclo pero ahora desde el punto ($x$,$y$) = (-1, 0.5), y no desde el (0,0).
 
-Para el caso $\mu = \mu_2$ = 10, el movimiento es id\'entico al detallado arriba, salvo los puntos (x,y) que cambian debido al par\'ametro $\mu$.
+Para el caso $\mu = \mu_2$ = 10, el movimiento es id\'entico al detallado arriba, salvo los puntos ($x$,$y$) que cambian debido al par\'ametro $\mu$.
 
 Para finalizar, el siguiente gr\'afico da una idea de la rapidez, direcci\'on y sentido de los movimientos descriptos:
 
@@ -510,10 +524,45 @@ Los archivos que contienen los datos num\'ericos $(ej2.dat$ y $ej3X.dat)$ no fue
 
 \lstinputlisting[language=C,breaklines]{../ODE_ej2.c}
 
-\subsection{C\'odigo fuente en C del oscilador de Van der Pol (ODE\_ej3.c)}
-Se transcribi\'o un solo caso de este c\'odigo, las peque\~nas modificaciones para los casos restantes est\'an se\~nalados en el an\'alisis del oscilador.
+
+\subsection{C\'odigo fuente en C del oscilador de Van der Pol con $\mu$ = 0.05 y condiciones iniciales fijas (ODE\_ej3.c)}
 
 \lstinputlisting[language=C,breaklines]{../ODE_ej3.c}
+
+
+\subsection{C\'odigo fuente en C del oscilador de Van der Pol con $\mu$ = 0.005 y condiciones iniciales fijas (ODE\_ej31.c)}
+
+\lstinputlisting[language=C,breaklines]{../ODE_ej31.c}
+
+
+\subsection{C\'odigo fuente en C del oscilador de Van der Pol con $\mu$ = 0.05 y condiciones iniciales variables (ODE\_ej3b.c)}
+
+\lstinputlisting[language=C,breaklines]{../ODE_ej3b.c}
+
+
+\subsection{C\'odigo fuente en C del oscilador de Van der Pol con $\mu$ = 0.005 y condiciones iniciales variables (ODE\_ej3b1.c)}
+
+\lstinputlisting[language=C,breaklines]{../ODE_ej3b1.c}
+
+
+\subsection{C\'odigo fuente en C del oscilador de Van der Pol con $\mu$ = 5 y condiciones iniciales fijas (ODE\_ej3c.c)}
+
+\lstinputlisting[language=C,breaklines]{../ODE_ej3c.c}
+
+\subsection{C\'odigo fuente en C del oscilador de Van der Pol con $\mu$ = 10 y condiciones iniciales fijas (ODE\_ej3c1.c)}
+
+\lstinputlisting[language=C,breaklines]{../ODE_ej3c1.c}
+
+
+\subsection{C\'odigo fuente en C del oscilador de Van der Pol con $\mu$ = 5 y condiciones iniciales variables (ODE\_ej3d.c)}
+
+\lstinputlisting[language=C,breaklines]{../ODE_ej3d.c}
+
+
+\subsection{C\'odigo fuente en C del oscilador de Van der Pol con $\mu$ = 10 y condiciones iniciales variables (ODE\_ej3d1.c)}
+
+\lstinputlisting[language=C,breaklines]{../ODE_ej3d1.c}
+
 
 \subsection{C\'odigo fuente en C del m\'etodo de Runge-Kutta de orden 4 provisto por la c\'atedra (rk4.c)}
 \lstinputlisting[language=C,breaklines]{../rk4.c}
