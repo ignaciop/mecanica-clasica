@@ -91,10 +91,21 @@ Se deber\'a entregar un trabajo de la actividad 2 y 3, con los c\'odigos, los gr
 
 
 \section{An\'alisis de datos y conclusiones}
+
+Las unidades utilizadas a lo largo de este trabajo son las siguientes:
+
+\begin{itemize}
+\item Tiempo [$t$] = $s$
+\item Posici\'on [$x$] = $cm$
+\item Velocidad [$\dot{x}$] = $\frac{cm}{s}$
+\item Constante de frecuencia natural [$\omega_0$] = $Hz$
+\item Constante de amortiguamiento [$\gamma$] = $\frac{Ns}{cm}$
+\end{itemize}
+
 \subsection{Oscilador arm\'onico amortiguado}
 
 El oscilador arm\'onico amotiguado es el caso generalizado de los osciladores arm\'onicos libres ya que su comportamiento contempla la disipaci\'on de energ\'ia pero no la presencia de fuerzas externas. Su comportamiento est\'a dado por (1).
-Para obtener las soluciones de dicha ecuaci\'on, se propone una con la forma $x(t) = e^{zt}$, con $z \in \mathbb{C}$ (luego $\dot{x}(t) = ze^{zt}$ y $\ddot{x}(t) = z^2e^{zt}$).
+Para obtener las soluciones de dicha ecuaci\'on, se propone una con la forma $x(t) = e^{zt}$, con $z \in \mathbb{C}$ (luego $\dot{x}(t) = ze^{zt}$ y $\ddot{x}(t) = z^2e^{zt}$) \textbf{[I]}.
 
 Reemplazando el $x(t)$ y sus derivadas en (1), se obtiene la siguiente ecuaci\'on cuadr\'atica para $z$:
 
@@ -122,7 +133,7 @@ $$\dot{x}(t) = e^{-\gamma t}((\omega_{1}b - \gamma a)acos(\omega_{1}t) + (\omega
 
 donde $a$ y $b$ se determinan con las condiciones iniciales
 $$ x(0) = a, \dot{x}(0) = \omega_{1}b - \gamma a$$
-Luego, la ecuaci\'on (3) nos queda:
+Luego, la ecuaci\'on (3) nos queda \textbf{[II]}:
 \begin{equation}
 x(t) = e^{-\gamma t}(x(0)cos(\omega_{1}t) + \frac{\dot{x}(0) + \gamma x(0)}{\omega_{1}}sin(\omega_{1}t))
 \end{equation}
@@ -140,7 +151,7 @@ Este movimiento corresponde a una oscilaci\'on arm\'onica de frecuencia $\omega_
 $$z_{1} = -\gamma + \sqrt{\gamma^2 - \omega_0^2}$$  $$z_{2} = -\gamma - \sqrt{\gamma^2 - \omega_0^2}$$
 
 
-En este caso, la ecuaci\'on $x(t)$ nos quedar\'a expresada en t\'erminos de cosenos y senos hiperb\'olicos. Para las condiciones iniciales procedemos como en el caso del oscilador subamortiguado, por lo tanto la ecuaci\'on de movimiento nos queda:
+En este caso, la ecuaci\'on $x(t)$ nos quedar\'a expresada en t\'erminos de cosenos y senos hiperb\'olicos. Para las condiciones iniciales procedemos como en el caso del oscilador subamortiguado, por lo tanto la ecuaci\'on de movimiento nos queda \textbf{[III]}:
 
 \begin{equation}
 x(t) = x(0)e^{-\gamma t}cosh(\sqrt{\gamma^2 - \omega_0^2}t) + \frac{\dot{x}(0) + \gamma x(0)}{\sqrt{\gamma^2 - \omega_0^2}}e^{-\gamma t}sinh(\sqrt{\gamma^2 - \omega_0^2}t)
@@ -164,7 +175,7 @@ Al tener una \'unica ra\'iz doble, debemos considerar soluciones del siguiente t
 
 $$ x(t) = (a+bt)e^{-\gamma t}$$
 
-Al imponer las condiciones iniciales sobre $x(t)$, la soluci\'on nos queda:
+Al imponer las condiciones iniciales sobre $x(t)$, la soluci\'on nos queda \textbf{[IV]}:
 
 \begin{equation}
 x(t) = [x(0) + (\dot{x}(0) + \gamma x(0))t]e^{-\gamma t}
@@ -181,7 +192,7 @@ Este movimiento se denomina \textit{oscilatorio con amortiguamiento cr\'itico}.
 
 \end{itemize}
 
-Para el an\'alisis num\'erico, se reescribi\'o la ecuaci\'on de segundo orden (1) como dos ecuaciones de primer orden de la siguiente manera:
+Para el an\'alisis num\'erico, se reescribi\'o la ecuaci\'on de segundo orden (1) como dos ecuaciones de primer orden de la siguiente manera \textbf{[V]}:
 
 $$ \begin{cases} \dot{x} = y \\ \dot{y} = -2\gamma y - \omega_0^2 x \end{cases} $$
 
@@ -242,9 +253,9 @@ Se observa adem\'as la gran amplitud y frecuencia inicial de esta funci\'on con 
 
 \subsection{Oscilador de Van der Pol}
 
-El oscilador de Van der Pol tiene un solo punto de equilibrio, que es el punto P(0,0), el cual siempre resulta ser inestable, pero todas las trayectorias a partir de \'el tienden en espiral a un ciclo l\'imite y a \'este tambi\'en tienden a decaer aquellas trayectorias cuyas amplitudes son m\'as grandes que la amplitud del ciclo l\'imite.
+El oscilador de Van der Pol tiene un solo punto de equilibrio, que es el punto P(0,0), el cual siempre resulta ser inestable, pero todas las trayectorias a partir de \'el tienden en espiral a un ciclo l\'imite y a \'este tambi\'en tienden a decaer aquellas trayectorias cuyas amplitudes son m\'as grandes que la amplitud del ciclo l\'imite \textbf{[VI]}.
 
-Para realizar el an\'alisis num\'erico de este oscilador no-lineal, se reescribi\'o la ecuaci\'on de segundo orden (2) como dos ecuaciones de primer orden utilizando las ecuaciones de Li\'enard:
+Para realizar el an\'alisis num\'erico de este oscilador no-lineal, se reescribi\'o la ecuaci\'on de segundo orden (2) como dos ecuaciones de primer orden utilizando las ecuaciones de Li\'enard \textbf{[VII]}:
 
 $$ \begin{cases} \dot{x} = \mu (y-(x^3-x)) \\ \dot{y} = -\frac{1}{\mu}x \end{cases} $$
 
@@ -470,11 +481,12 @@ Finalmente, las condiciones iniciales tambi\'en se variaron dentro bucle for, co
 
 
 Para $\mu$ $<<$ 1, y de acuerdo a los gr\'aficos correspondientes, es mas claro ver que pasa cuando las condiciones iniciales est\'an fijas.
-Tambi\'en aqu\'i se presenta el punto de equilibrio inestable (0,0), por ejemplo en el caso $\mu = \mu_1$ = 5 (Figura 21); en el cual en un instante inicial, el sistema se desplaza r\'apidamente desde este punto hacia $x$ = 1; para luego realizar un desplazamiento mucho m\'as lento en el sentido vertical desde ($x$,$y$) = (1,-0.5) hasta ($x$,$y$) = (-1,-0.5).
-Llegado este punto, se repite nuevamente el movimiento r\'apido en sentido horizontal hasta $x$ = -1, y luego el lento hacia arriba, desde ($x$,$y$) = (-1, -0.5) hasta ($x$,$y$) = (-1, 0.5).
-Cualitativamente, para el caso $\mu = \mu_2$ = 10, el movimiento es id\'entico al detallado arriba.
+Tambi\'en aqu\'i se presenta el punto de equilibrio inestable (0,0), por ejemplo en el caso $\mu = \mu_1$ = 5 (Figura 21); en el cual en un instante inicial, el sistema se desplaza r\'apidamente desde este punto hacia $x$ = 1; para luego realizar un desplazamiento mucho m\'as lento en el sentido vertical desde ($x$,$y$) = (1,0) hasta ($x$,$y$) = (1,-0.5).
+Llegado este punto, se repite nuevamente el movimiento r\'apido en sentido horizontal hasta $x$ = -1, y luego el lento hacia arriba, desde ($x$,$y$) = (-1, -0.5) hasta ($x$,$y$) = (-1, 0.5); repiti\'endose el ciclo pero ahora desde el punto ($x$,$y$) = (-1, 0.5), y no desde el (0,0).
 
-Para finalizar, el siguiente gr\'afico da una idea de la rapidez de los movimientos descriptos:
+Para el caso $\mu = \mu_2$ = 10, el movimiento es id\'entico al detallado arriba, salvo los puntos (x,y) que cambian debido al par\'ametro $\mu$.
+
+Para finalizar, el siguiente gr\'afico da una idea de la rapidez, direcci\'on y sentido de los movimientos descriptos:
 
 
 \begin{figure}[H]
@@ -507,7 +519,13 @@ Se transcribi\'o un solo caso de este c\'odigo, las peque\~nas modificaciones pa
 \lstinputlisting[language=C,breaklines]{../rk4.c}
 
 \section{Bibliograf\'ia}
+\textbf{[I], [II], [III], [IV]} F. S. Crawford. \textit{Ondas – Berkeley Physics Course Vol. 3}. Editorial Revert\'e S.A., 2da edici\'on, Barcelona (1994). P\'ags. 72-80
 
+\textbf{[V]} J. D. Hoffman. \textit{Numerical Methods for Engineers and Scientists}. Editorial Marcel Dekker Inc., Second Edition, (2001). P\'ag. 398
+
+\textbf{[VI]} S. H. Strogatz. \textit{Nonlinear Dynamics and Chaos with Applications to Physics, Biology, Chemistry and Engineering}. Westview Press, Second Edition, (2015). P\'ag. 198
+
+\textbf{[VII]} S. H. Strogatz. \textit{Nonlinear Dynamics and Chaos with Applications to Physics, Biology, Chemistry and Engineering}. Westview Press, Second Edition, (2015). P\'ag. 212
 
 
 
