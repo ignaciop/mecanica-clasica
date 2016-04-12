@@ -207,7 +207,7 @@ Para el an\'alisis num\'erico, se reescribi\'o la ecuaci\'on de segundo orden (1
 
 $$ \begin{cases} \dot{x} = y \\ \dot{y} = -2\gamma y - \omega_0^2 x \end{cases} $$
 
-Este sistema se implement\'o en el c\'odigo fuente \textit{ODE\_ej2.c} (ver secci\'on \textbf{Ap\'endice}). Se utiliz\'o una variable \textit{j} dentro del bucle \textit{for} para ir iterando los distintos valores de $\gamma$ y $\omega_0$, as\'i como tambi\'en las condiciones iniciales $x(0)$ y $\dot{x}(0)$; desde $j$ = 1 hasta \textit{j} = 10. El tiempo m\'aximo de muestreo fue de 2 segundos.
+Este sistema se implement\'o en el c\'odigo fuente \textit{ODE\_ej2.c} (ver secci\'on Ap\'endice). Se utiliz\'o una variable \textit{j} dentro del bucle \textit{for} para ir iterando los distintos valores de $\gamma$ y $\omega_0$, as\'i como tambi\'en las condiciones iniciales $x(0)$ y $\dot{x}(0)$; desde $j$ = 1 hasta \textit{j} = 10. El tiempo m\'aximo de muestreo fue de 2 segundos.
 
 Para destacar los casos sobre, sub y amortiguado cr\'itico, es necesario aclarar que se utilizaron incrementos de dicha variable con un valor igual a 4, por lo tanto \textit{j} solo toma 3 valores durante la ejecuci\'on del programa: \textit{j} = 1, \textit{j} = 5 y \textit{j} = 9; obteniendo una representaci\'on num\'erica y gr\'afica de los 3 casos mencionados anteriormente.
 
@@ -494,9 +494,9 @@ Finalmente, las condiciones iniciales tambi\'en se variaron dentro de un bucle \
 
 Para $\mu$ $>>$ 1, y de acuerdo a los gr\'aficos correspondientes, es m\'as claro ver qu\'e pasa cuando las condiciones iniciales est\'an fijas.
 
-Tambi\'en aqu\'i se presenta el punto de equilibrio inestable (0,0), por ejemplo en el caso $\mu = \mu_1$ = 5 (Figura 21); en el cual en un instante inicial, el sistema se desplaza r\'apidamente desde este punto hacia $x$ = 1; para luego realizar un desplazamiento mucho m\'as lento en el sentido vertical desde ($x$,$y$) = (1,0) hasta ($x$,$y$) = (1,-0.5).
+Tambi\'en aqu\'i se presenta el punto de equilibrio inestable (0,0), por ejemplo en el caso $\mu = \mu_1$ = 5 (Figura 21); en el cual en un instante inicial, el sistema se desplaza r\'apidamente desde este punto hacia $x \approx$ 1; para luego realizar un desplazamiento mucho m\'as lento en el sentido vertical desde ($x$,$y$) $\approx$ (1,0) hasta ($x$,$y$) $\approx$ (1,-0.5).
 
-Llegado este punto, se repite nuevamente el movimiento r\'apido en sentido horizontal hasta $x$ = -1, y luego el lento hacia arriba, desde ($x$,$y$) = (-1, -0.5) hasta ($x$,$y$) = (-1, 0.5); repiti\'endose el ciclo pero ahora desde el punto ($x$,$y$) = (-1, 0.5), y no desde el (0,0).
+Llegado este punto, se repite nuevamente el movimiento r\'apido en sentido horizontal hasta $x \approx$ -1, y luego el lento hacia arriba, desde ($x$,$y$) $\approx$ (-1, -0.5) hasta ($x$,$y$) $\approx$ (-1, 0.5); repiti\'endose el ciclo pero ahora desde el punto ($x$,$y$) $\approx$ (-1, 0.5), y no desde el (0,0).
 
 Para el caso $\mu = \mu_2$ = 10, el movimiento es id\'entico al detallado arriba, salvo los puntos ($x$,$y$) que cambian debido al par\'ametro $\mu$.
 
