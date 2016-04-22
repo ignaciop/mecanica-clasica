@@ -52,14 +52,14 @@ int main(){
 */
 
 //valores de los parámetros
-    aa.m1 = 80;
-    aa.m2 = 100000;
+    aa.m1 = 5970000;
+    aa.m2 = 5970000./18;
 
     aa.mu = (aa.m1*aa.m2)/(aa.m1+aa.m2);
-    aa.gamma= aa.m1*aa.m2/10000; 
+    aa.gamma= aa.m1*aa.m2*0.000000000066742; 
 
  //VER QUE l depende las CI!!!
-    aa.l = 3500;   //variar de 500 a 3000 para ver (en 500 se escapa, por 1500 elipse, ya por 3800 parabola)
+    aa.l = 1500;   //variar de 500 a 3000 para ver (en 500 se escapa, por 1500 elipse, ya por 3800 parabola)
     
 
 //empieza a integrar
