@@ -40,8 +40,9 @@ int main(){
   t_max=1000;
 
   //Condiciones Iniciales
-  v[0]=100;
-  v[1]=1;
+  v[0]=100.; //r
+  v[1]=1.;  //u
+  //v[2]=60; //phi
 
 
 //valor de los parámetros - usando Mt= 5.97x1024kg; Ml = 1/18*Mt y G=6.6738x10-11 Nm^2/kg^2
@@ -51,14 +52,14 @@ int main(){
 */
 
 //valores de los parámetros
-    aa.m1 = 1000.;
-    aa.m2 = 200000.;
+    aa.m1 = 80;
+    aa.m2 = 100000;
 
     aa.mu = (aa.m1*aa.m2)/(aa.m1+aa.m2);
-    aa.gamma= aa.m1*aa.m2*6.67e-11; 
+    aa.gamma= aa.m1*aa.m2/10000; 
 
  //VER QUE l depende las CI!!!
-    aa.l = 300000000;   //variar de 500 a 3000 para ver (en 500 se escapa, por 1500 elipse, ya por 3800 parabola)
+    aa.l = 3500;   //variar de 500 a 3000 para ver (en 500 se escapa, por 1500 elipse, ya por 3800 parabola)
     
 
 //empieza a integrar
@@ -74,8 +75,8 @@ int main(){
     //definir r1 y r2 
     double r1x = x*(aa.m2/(aa.m1+aa.m2));
     double r1y = y*(aa.m2/(aa.m1+aa.m2));
-    double r2x = x*(aa.m1/(aa.m1+aa.m2));
-    double r2y = y*(aa.m1/(aa.m1+aa.m2)); 
+    double r2x = x*(-aa.m1/(aa.m1+aa.m2));
+    double r2y = y*(-aa.m1/(aa.m1+aa.m2)); 
 
    //Imprime la integracion en un vector
 
@@ -83,8 +84,6 @@ int main(){
 
     t+=dt;
   }
-
-    fprintf(ptr,"\n");
 
   fclose(ptr);
   return(0);

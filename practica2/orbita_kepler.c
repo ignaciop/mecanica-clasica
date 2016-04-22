@@ -73,4 +73,3 @@ int main(){
   fclose(ptr);
   return(0);
 }
-
