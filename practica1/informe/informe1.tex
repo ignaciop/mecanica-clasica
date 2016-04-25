@@ -50,11 +50,11 @@ En la secci\'on de materiales adicionales de la c\'atedra se encuentra un progra
 
 En ubuntu es posible compilar y ejecutar el c\'odigo directamente desde una terminal abierta en una carpeta que contenga tanto el programa principal como el integrador rk4:\newline
 
-\framebox[1.1\width]{gcc ODE\_ejX.c -o ode\_ejX -lm rk4.c}
+\framebox[1.1\width]{gcc ODE.c -o ode -lm rk4.c}
 
-\framebox[1.1\width]{./ode\_ejX}\newline
+\framebox[1.1\width]{./ode}\newline
 
-Se obtendr\'a como salida un archivo llamado $ejX.dat$ , donde $X$ es el n\'umero del ejercicio, que contiene el resultado de la integraci\'on. Los resultados pueden ser analizados gr\'aficamente mediante un graficador, en nuestro caso utilizaremos \textbf{gnuplot} que se controla mediante comandos en terminal.\newline
+Se obtendr\'a como salida un archivo llamado $ej1.dat$ , que contiene el resultado de la integraci\'on. Los resultados pueden ser analizados gr\'aficamente mediante un graficador, en nuestro caso utilizaremos \textbf{gnuplot} que se controla mediante comandos en terminal.\newline
 
 
 {\Large \textbf{Actividad 1}}
@@ -393,6 +393,7 @@ En una segunda instancia, las condiciones iniciales se variaron dentro de un buc
 \end{center}
 \end{figure}
 
+\newpage
 Se puede observar que, para $\mu$ $<<$ 1, el termino cuadr\'atico de la ecuaci\'on (2) es muy peque\~no y el comportamiento es similar al de un oscilador arm\'onico amortiguado. Esto se puede ver claramente en los espacios de fases en los casos analizados; sobre todo cuando $\mu = \mu_2$ = 0.005 y las condiciones son variables, podemos distinguir varios ciclos l\'imite representados por c\'irculos marcados con l\'ineas m\'as gruesas alrededor del punto de equilibrio (0,0), a los cuales convergen las distintas trayectorias impuestas por las condiciones iniciales variables (Figura 18).
 Estos resultados son consistentes con los obtenidos para las condiciones iniciales fijas (Figura 12), repiti\'endose el mismo diagrama de fases con amplitudes m\'as grandes, seg\'un el valor de la variable \textit{j} detallada en el Cuadro 2.
 
